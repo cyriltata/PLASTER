@@ -19,9 +19,9 @@ process get_pharmvar_vcf {
         url = "https://purple.psych.bio.uni-goettingen.de/plaster/${gene}-${ver}.zip"
         vcf = "${am}.pharmvar-$gene-${ver}.vcf.gz"
         """
-        curl --insecure -I "$url" -o bundle.zip
-        unzip bundle.zip
-        for VCF in ./$gene-$ver/GRCh38/*.vcf
+        wget --no-check-certificate "$url" -O bundle.tar
+        tar xvf bundle.tar
+        for VCF in .bundle/$gene-$ver/GRCh38/*.vcf
         do
             NAME=`basename \$VCF .vcf`
             NORM=\$NAME.norm.bcf
