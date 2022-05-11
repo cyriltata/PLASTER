@@ -35,12 +35,12 @@ process wget {
         name = name_gz.toString().replaceAll('\\.b?gz$', '')
         if (is_gz)
             """
-            wget $url -O $name_gz
+            wget --no-check-certificate $url -O $name_gz
             zcat $name_gz > $name
             """
         else
             """
-            wget $url -O $name
+            wget --no-check-certificate $url -O $name
             """
 }
 
