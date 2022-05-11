@@ -6,7 +6,7 @@
     "strand": "-",
     "fusion": "CYP2D7",
     "pharmvar_gene": "CYP2D6",
-    "pharmvar_ver": "4.2.6.1",
+    "pharmvar_ver": "5.1.14",
     "vep_feature":"ENST00000645361"
   },
   "CYP2D7": {
