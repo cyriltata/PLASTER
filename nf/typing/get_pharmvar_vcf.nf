@@ -19,7 +19,7 @@ process get_pharmvar_vcf {
         url = "https://purple.psych.bio.uni-goettingen.de/plaster/${gene}-${ver}.zip"
         vcf = "${am}.pharmvar-$gene-${ver}.vcf.gz"
         """
-        curl "$url" -o bundle.zip
+        curl --insecure -I "$url" -o bundle.zip
         unzip bundle.zip
         for VCF in ./$gene-$ver/GRCh38/*.vcf
         do
