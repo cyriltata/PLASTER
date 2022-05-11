@@ -16,7 +16,7 @@ process get_pharmvar_vcf {
     script:
         gene = meta.pharmvar_gene
         ver = meta.pharmvar_ver
-        url = "https://purple.psych.bio.uni-goettingen.de/plaster/${gene}-${ver}.zip"
+        url = "https://purple.psych.bio.uni-goettingen.de/plaster/${gene}-${ver}.tar"
         vcf = "${am}.pharmvar-$gene-${ver}.vcf.gz"
         """
         wget --no-check-certificate "$url" -O bundle.tar
