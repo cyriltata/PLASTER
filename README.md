@@ -10,7 +10,8 @@ The pipeline is built using [Nextflow](https://nextflow.io/), a workflow tool to
 ## Prerequisites
 
 * [Nextflow](https://nextflow.io/) (version ≥ 20.07.1)
-* [Singularity](https://sylabs.io/guides/3.0/user-guide/index.html) or [Docker](https://www.docker.com/) 
+* [Singularity](https://sylabs.io/guides/3.0/user-guide/index.html) or [Docker](https://www.docker.com/)
+* Job compute nodes require an internet connection to download data from PharmVar and Ensembl VEP
 
 ## Usage
 
@@ -36,7 +37,7 @@ The pipeline is built using [Nextflow](https://nextflow.io/), a workflow tool to
     ref_fasta = 'ftp://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/chr22.fa.gz'
   }
   ```
-  See [Pre-processing Parameters](doc/preproc.md) for more details.
+  See [Pre-processing Parameters](doc/preproc.md) for more details, including details on running in single-sample mode (no barcodes).
 * **Resuming a failed run**  
   Adding the `-resume` option to the Nextflow run command will use cached results from any pipeline steps where the inputs remain the same:
   ```
@@ -103,7 +104,7 @@ The pipeline is built using [Nextflow](https://nextflow.io/), a workflow tool to
 
 ### Pre-processing
 
-* **CCS** - [PacificBiosciences/ccs](https://github.com/PacificBiosciences/ccs)) implemented in [`pb_ccs.nf`](nf/preproc/pb_ccs.nf)
+* **CCS** - [PacificBiosciences/ccs](https://github.com/PacificBiosciences/ccs) implemented in [`pb_ccs.nf`](nf/preproc/pb_ccs.nf)
 * **Barcoding** - [PacificBiosciences/barcoding](https://github.com/PacificBiosciences/barcoding) implemented in [`pb_lima.nf`](nf/preproc/pb_lima.nf)
 * **Alignment** - [PacificBiosciences/pbmm2](https://github.com/PacificBiosciences/pbmm2) implemented in [`pb_mm2.nf`](nf/preproc/pb_mm2.nf)
 * **Trim** - Python script [`bam_annotate_amplicons.py`](bin/bam_annotate_samples.py) based on [pysam](https://github.com/pysam-developers/pysam)
@@ -125,3 +126,6 @@ The pipeline is built using [Nextflow](https://nextflow.io/), a workflow tool to
 
 ## Copy Number Analysis
 * The folder `CopyNumAnalysis` contains raw data and the analysis Rmarkdown document associated with the qPCR copy number analysis presented in the PLASTER manuscript.
+
+## Citation
+* [Charnaud, S., Munro, J.E., Semenec, L. et al. PacBio long-read amplicon sequencing enables scalable high-resolution population allele typing of the complex CYP2D6 locus. Commun Biol 5, 168 (2022)](https://doi.org/10.1038/s42003-022-03102-8)
