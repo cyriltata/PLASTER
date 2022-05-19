@@ -13,7 +13,7 @@ process get_pharmvar_vcf {
         tuple val(am), path(vcf), path("${vcf}.tbi")
 
     script:
-        url = "https://purple.psych.bio.uni-goettingen.de/plaster/${pharmvar.gene}-${pharmvar.ver}.tar"
+        url = "https://purple.psych.bio.uni-goettingen.de/plaster/pharmvar-${pharmvar.ver}.zip"
         vcf = "${am}.${pharmvar.ver}_${pharmvar.ref}_${pharmvar.gene}.vcf.gz"
         """
         wget --no-check-certificate "$url" -O bundle.zip
