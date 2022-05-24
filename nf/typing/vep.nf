@@ -15,7 +15,7 @@ process vep {
         out = "${am}.vep.vcf.gz"
         """
         vep --input_file $vcf \\
-            --database \\
+            --cache \\
             --format vcf \\
             --vcf \\
             --everything \\
