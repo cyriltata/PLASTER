@@ -17,6 +17,7 @@ process vep {
         vep --input_file $vcf \\
             --database \\
             --host localhost \\
+            --port 6603 \\
             --format vcf \\
             --vcf \\
             --everything \\
