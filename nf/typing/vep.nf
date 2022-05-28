@@ -14,6 +14,7 @@ process vep {
     script:
         out = "${am}.vep.vcf.gz"
         """
+        ssh -4 -fN -L 6606:ensembldb.ensembl.org:3306 gwdu103
         vep --input_file $vcf \\
             --database \\
             --host localhost \\
