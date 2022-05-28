@@ -16,9 +16,9 @@ process vep {
         """
         vep --input_file $vcf \\
             --database \\
-            --host 134.76.18.136
-            --user ensembl
-            --pass ensembl
+            --host 134.76.18.136 \\
+            --user ensembl \\
+            --pass ensembl \\
             --format vcf \\
             --vcf \\
             --everything \\
