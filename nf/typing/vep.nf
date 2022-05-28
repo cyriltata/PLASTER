@@ -15,6 +15,8 @@ process vep {
         out = "${am}.vep.vcf.gz"
         """
         vep --input_file $vcf \\
+            --database \\
+            --host test.formr.org \\
             --format vcf \\
             --vcf \\
             --everything \\
