@@ -15,11 +15,9 @@ process pharmvar_star_allele {
     script:
         json = JsonOutput.toJson(pharmvar_meta)
         """
-        echo $sm_vcf
-        echo $pv_vcf
         export ftp_proxy="http://www-cache.gwdg.de:3128"
         export http_proxy="http://www-cache.gwdg.de:3128"
-        export https_proxy="https://www-cache.gwdg.de:3128"
+        export https_proxy="http://www-cache.gwdg.de:3128"
         pharmvar_star_allele.R $sm_vcf $pv_vcf \\
             --pharmvar '$json' \\
             --out-pref $am
