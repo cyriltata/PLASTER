@@ -15,7 +15,10 @@ process vep {
         out = "${am}.vep.vcf.gz"
         """
         vep --input_file $vcf \\
-            --cache \\
+            --database \\
+            --host 134.76.18.136
+            --user ensembl
+            --pass ensembl
             --format vcf \\
             --vcf \\
             --everything \\
