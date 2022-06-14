@@ -29,10 +29,12 @@ process ccs {
 
     script:
         prefix = params.run_id + (params.ccs_n_parallel > 1 ? "_${i}" : "")
-        ccs_bam = "/scratch/users/ctata/plaster/reads/m64187e_220214_111831.reads.bam"
-        report = "/scratch/users/ctata/plaster/reads/m64187e_220214_111831.ccs_reports.txt"
+        ccs_bam = prefix + ".ccs.bam"
+        report = prefix + ".ccs_report.txt"
         """
-        echo "ok"
+        cp /scratch/users/ctata/plaster/reads/m64187e_220214_111831.reads.bam $ccs_bam
+        cp /scratch/users/ctata/plaster/reads/m64187e_220214_111831.ccs_reports.txt $report
+        
         """
 }
 
@@ -53,3 +55,4 @@ process merge {
     pbindexdump ${pref}.bam.pbi | jq .numReads > ${pref}.nr
     """
 }
+
