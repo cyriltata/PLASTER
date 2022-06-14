@@ -43,11 +43,9 @@ workflow preproc {
     prep_ref(params.ref_fasta, 'mmi')
 
     ccs_sr_ch = Channel.from([[subreads_bam, subreads_pbi]]) |
-        pb_ccs |
         map { [subreads_bam, it[1]] } |
         extract_ccs_failed |
         map { ['SR', it[0].toFile().text.trim() as int, it[1]] } |
-        mix(pb_ccs.out.map { ['CCS'] + it }) |
         pb_lima
 
     pb_lima.out.bams |
