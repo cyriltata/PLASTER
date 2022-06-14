@@ -32,8 +32,8 @@ process ccs {
         ccs_bam = prefix + ".ccs.bam"
         report = prefix + ".ccs_report.txt"
         """
-        cp /scratch/users/ctata/plaster/reads/m64187e_220214_111831.reads.bam $ccs_bam
-        cp /scratch/users/ctata/plaster/reads/m64187e_220214_111831.ccs_reports.txt $report
+        cp m64187e_220214_111831.reads.bam $ccs_bam
+        cp m64187e_220214_111831.ccs_reports.txt $report
         
         """
 }
