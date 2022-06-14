@@ -29,17 +29,10 @@ process ccs {
 
     script:
         prefix = params.run_id + (params.ccs_n_parallel > 1 ? "_${i}" : "")
-        ccs_bam = prefix + ".ccs.bam"
-        report = prefix + ".ccs_report.txt"
+        ccs_bam = "/scratch/users/ctata/plaster/reads/m64187e_220214_111831.reads.bam"
+        report = "/scratch/users/ctata/plaster/reads/m64187e_220214_111831.ccs_reports.txt"
         """
-        ccs $subreads_bam $ccs_bam \\
-            --chunk $i/$params.ccs_n_parallel \\
-            --num-threads $task.cpus \\
-            --max-length $params.ccs_max_len \\
-            --min-length $params.ccs_min_len \\
-            --min-rq $params.ccs_min_acc \\
-            --min-passes $params.ccs_min_passes \\
-            --report-file $report
+        echo "ok"
         """
 }
 
